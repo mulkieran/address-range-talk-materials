@@ -344,40 +344,27 @@ Numerical Computing with IEEE Floating Point Arithmetic
 \end_layout
 
 \begin_layout Itemize
-In storage, people cheat by comparing apples with slightly larger apples.
-\end_layout
-
-\begin_layout Block
-\begin_inset Argument 2
+Comparing apples with slightly larger apples
+\begin_inset Foot
 status open
 
 \begin_layout Plain Layout
-The Unit Overloading Problem
+You can say you have more apples if you use the smaller ones.
 \end_layout
 
-\end_inset
-
-
-\end_layout
-
-\begin_layout Block
-It is certainly the case that 
-\begin_inset Formula $12\,\mathtt{GB}$
-\end_inset
-
- is 
-\emph on
-either
-\emph default
- 
-\begin_inset Formula $12000000000\,\mathtt{B}$
-\end_inset
-
- or 
-\begin_inset Formula $12884901888\,\mathtt{B}$
 \end_inset
 
 .
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename figure_1.png
+	scale 30
+
+\end_inset
+
+
 \end_layout
 
 \end_deeper
