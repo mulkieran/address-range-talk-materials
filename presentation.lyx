@@ -81,31 +81,11 @@
 \begin_body
 
 \begin_layout Title
-The Hypothesis
-\begin_inset Foot
-status open
-
-\begin_layout Plain Layout
-\begin_inset Flex URL
-status open
-
-\begin_layout Plain Layout
-
-http://hypothesis.works/
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
- Testing Library for Python
+The Computation and Representation of Address Ranges
 \end_layout
 
 \begin_layout Subtitle
-An Introduction
+With an Introduction to the Python justbytes library
 \end_layout
 
 \begin_layout Author
@@ -131,25 +111,20 @@ Audience
 
 \begin_deeper
 \begin_layout FrameSubtitle
-Pessimistic Python Programmers who are mostly unfamiliar with Property-Based
- Testing.
+Programmers who write code that must compute with and represent address
+ ranges.
 \end_layout
 
 \begin_layout Itemize
-If you aren't pessimistic enough...
+If you have never needed to discover free space on a device\SpecialChar \ldots{}
+then this talk
+ is probably not for you.
 \end_layout
 
 \begin_layout Itemize
-If you are unfamiliar with Python...
-\end_layout
-
-\begin_layout Itemize
-If you already know about QuickCheck and have been using something like
- it for years...
-\end_layout
-
-\begin_layout Standard
-then this talk is probably not for you.
+If you have never written code to display or calculate the size of a device\SpecialChar \ldots{}
+then
+ the second part of the talk is not for you.
 \end_layout
 
 \end_deeper
@@ -176,19 +151,19 @@ What this talk will include.
 \end_layout
 
 \begin_layout Itemize
-
-\emph on
-Extremely
-\emph default
- simple code examples.
-\end_layout
-
-\begin_layout Itemize
 A little bit of personal experience.
 \end_layout
 
 \begin_layout Itemize
-Pointers to other sources.
+Some math.
+\end_layout
+
+\begin_layout Itemize
+Some opinion.
+\end_layout
+
+\begin_layout Itemize
+Some Python code.
 \end_layout
 
 \end_deeper
@@ -196,6 +171,216 @@ Pointers to other sources.
 
 \end_layout
 
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+The Domain
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout FrameSubtitle
+Allocating space on devices.
+\end_layout
+
+\begin_layout Itemize
+Partitions
+\end_layout
+
+\begin_layout Itemize
+Caches
+\end_layout
+
+\end_deeper
+\begin_layout Separator
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Not the Domain
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout FrameSubtitle
+Where this is not an issue.
+\end_layout
+
+\begin_layout Itemize
+Bandwidth
+\end_layout
+
+\begin_layout Itemize
+Sales
+\end_layout
+
+\end_deeper
+\begin_layout Separator
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Not the Domain
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout FrameSubtitle
+When it is just a question of the amount being moved.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename Gravel_and_aggregates_sorting_plant,_Alexandra_Dock,_Hull.jpg
+	scale 20
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Separator
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+The Domain
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout FrameSubtitle
+Allocating address regions is a 
+\emph on
+layout
+\emph default
+ problem.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename geometry.jpg
+	scale 10
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Separator
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+The Rest
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout FrameSubtitle
+Only discussing the domain.
+\end_layout
+
+\begin_layout Itemize
+Dealing with amounts is hard 
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+\begin_inset Quotes eld
+\end_inset
+
+Numerical Computing with IEEE Floating Point Arithmetic
+\begin_inset Quotes erd
+\end_inset
+
+ by Michael L.
+ Overton
+\end_layout
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+In storage, people cheat by comparing apples with slightly larger apples.
+\end_layout
+
+\begin_layout Block
+\begin_inset Argument 2
+status open
+
+\begin_layout Plain Layout
+The Unit Overloading Problem
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Block
+It is certainly the case that 
+\begin_inset Formula $12\,\mathtt{GB}$
+\end_inset
+
+ is 
+\emph on
+either
+\emph default
+ 
+\begin_inset Formula $12000000000\,\mathtt{B}$
+\end_inset
+
+ or 
+\begin_inset Formula $12884901888\,\mathtt{B}$
+\end_inset
+
+.
+\end_layout
+
+\end_deeper
 \begin_layout FragileFrame
 \begin_inset Argument 4
 status open
