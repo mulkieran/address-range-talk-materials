@@ -372,6 +372,38 @@ You can say you have more apples if you use the smaller ones.
 \end_layout
 
 \end_deeper
+\begin_layout Separator
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Confession
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout FrameSubtitle
+This is a hard problem?!
+\end_layout
+
+\begin_layout Standard
+Until I started working on software supporting block devices I would not
+ have though that this was a difficult subject.
+\end_layout
+
+\end_deeper
+\begin_layout Separator
+
+\end_layout
+
 \begin_layout FragileFrame
 \begin_inset Argument 4
 status open
