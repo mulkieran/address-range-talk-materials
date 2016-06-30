@@ -21,6 +21,7 @@ def main():
     percent_values = \
        [Decimal(x.numerator)/Decimal(x.denominator) for x in rationals]
 
+    plt.title('Percent Difference between Values in SI and IEC Units')
     plt.xticks(exponents, ['B', 'K', 'M', 'G', 'T', 'P', 'E', 'Z', 'Y'])
     plt.ylabel("Percent Increase: (SI - IEC)/IEC")
     plt.xlabel("Unit Size")

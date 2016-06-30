@@ -85,7 +85,11 @@ The Computation and Representation of Address Ranges
 \end_layout
 
 \begin_layout Subtitle
-With an Introduction to the Python justbytes library
+With an Introduction to the Python 
+\family typewriter
+justbytes
+\family default
+ Library
 \end_layout
 
 \begin_layout Author
