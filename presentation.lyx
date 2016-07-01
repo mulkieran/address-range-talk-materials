@@ -339,7 +339,16 @@ Numerical Computing with IEEE Floating Point Arithmetic
 \end_inset
 
  by Michael L.
- Overton
+ Overton but also 
+\begin_inset Quotes eld
+\end_inset
+
+The End of Error: Unum Computing
+\begin_inset Quotes erd
+\end_inset
+
+ by John L.
+ Gustafson.
 \end_layout
 
 \end_inset
@@ -397,6 +406,152 @@ This is a hard problem?!
 \begin_layout Standard
 Until I started working on software supporting block devices I would not
  have though that this was a difficult subject.
+ But it is.
+\end_layout
+
+\end_deeper
+\begin_layout Separator
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Topics
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout FrameSubtitle
+Problems to cover.
+\end_layout
+
+\begin_layout Itemize
+Computation - doing arithmetic with address range
+\end_layout
+
+\begin_layout Itemize
+Representation - communicating values to client code
+\end_layout
+
+\begin_layout Itemize
+Display - communicating values to a human reader
+\end_layout
+
+\end_deeper
+\begin_layout Separator
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Computation
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout FrameSubtitle
+Rules for arithmetic operations.
+\end_layout
+
+\begin_layout Itemize
+Results are confined to 
+\emph on
+actual
+\emph default
+ address ranges.
+\end_layout
+
+\begin_layout Itemize
+Results are 
+\emph on
+always exact
+\emph default
+.
+\end_layout
+
+\begin_layout Itemize
+Types are 
+\emph on
+always correct
+\emph default
+.
+\end_layout
+
+\begin_layout Itemize
+Operands are 
+\emph on
+never floats
+\emph default
+.
+\end_layout
+
+\end_deeper
+\begin_layout Separator
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Operands are Never Floats
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout FrameSubtitle
+Rules for arithmetic operations.
+\end_layout
+
+\begin_layout Itemize
+Results are confined to 
+\emph on
+actual
+\emph default
+ address ranges.
+\end_layout
+
+\begin_layout Itemize
+Results are 
+\emph on
+always exact
+\emph default
+.
+\end_layout
+
+\begin_layout Itemize
+Types are 
+\emph on
+always correct
+\emph default
+.
+\end_layout
+
+\begin_layout Itemize
+Operands are 
+\emph on
+never floats
+\emph default
+.
 \end_layout
 
 \end_deeper
