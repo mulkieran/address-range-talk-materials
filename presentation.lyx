@@ -166,10 +166,6 @@ Some math.
 Some opinion.
 \end_layout
 
-\begin_layout Itemize
-Some Python code.
-\end_layout
-
 \end_deeper
 \begin_layout Separator
 
@@ -2278,6 +2274,52 @@ There is a lot more information in
 status open
 
 \begin_layout Plain Layout
+Always Prefer IEC to SI Units
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout FrameSubtitle
+IEC units better reflect the structure of memory
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+Would 
+\begin_inset Formula $2^{8}$
+\end_inset
+
+have been better than 
+\begin_inset Formula $2^{10}$
+\end_inset
+
+? Probably.
+\end_layout
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+The structure of memory and the structure of addresses are based on powers
+ of 2.
+\end_layout
+
+\end_deeper
+\begin_layout Separator
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
 Display
 \end_layout
 
@@ -2318,11 +2360,20 @@ https://pypi.python.org/pypi/justbases-gui/0.1.0
 \end_layout
 
 \begin_layout Itemize
+IEC units are 
+\emph on
+always
+\emph default
+ preferable to SI units.
+\end_layout
+
+\begin_layout Itemize
 There is no single obvious best choice for certain display options.
 \end_layout
 
 \begin_layout Itemize
-IEC units are most informative when coupled with base 1024.
+IEC units are most informative when coupled with base 1024, but that might
+ be a hard sell.
 \end_layout
 
 \begin_layout Itemize
@@ -2334,7 +2385,11 @@ The client code decides the
 \emph on
 appearance
 \emph default
-, but justbytes decides the 
+, but 
+\family typewriter
+justbytes
+\family default
+ decides the 
 \emph on
 value
 \emph default
@@ -2364,7 +2419,7 @@ Computation
 Rules for arithmetic operations.
 \end_layout
 
-\begin_layout Itemize
+\begin_layout Enumerate
 Types are 
 \emph on
 always correct
@@ -2372,23 +2427,23 @@ always correct
 .
 \end_layout
 
-\begin_layout Itemize
+\begin_layout Enumerate
 Results are 
 \emph on
-always exact
+always
 \emph default
-.
+ exact.
 \end_layout
 
-\begin_layout Itemize
+\begin_layout Enumerate
 Operands are 
 \emph on
-never floats
+never
 \emph default
-.
+ float or Decimal.
 \end_layout
 
-\begin_layout Itemize
+\begin_layout Enumerate
 Results of computations never yield ranges to any power but 1.
 \end_layout
 
@@ -2446,9 +2501,9 @@ Just as
 \begin_inset Formula $32\,\mathrm{GiB}+64$
 \end_inset
 
-
+.
 \begin_inset Foot
-status open
+status collapsed
 
 \begin_layout Plain Layout
 Some idiosyncracies of the Python libraries make it attractive to be able
@@ -2457,7 +2512,7 @@ Some idiosyncracies of the Python libraries make it attractive to be able
 
 \end_inset
 
-.
+
 \end_layout
 
 \begin_layout Itemize
@@ -2479,6 +2534,14 @@ Just as
 
 .
  
+\end_layout
+
+\begin_layout Standard
+Operations not allowed by these rules are called 
+\emph on
+nonsensical
+\emph default
+.
 \end_layout
 
 \end_deeper
@@ -2539,7 +2602,7 @@ Operands are
 \emph on
 Never
 \emph default
- floats
+ float or Decimal
 \end_layout
 
 \end_inset
@@ -2549,7 +2612,7 @@ Never
 
 \begin_deeper
 \begin_layout FrameSubtitle
-Because most programmers do not have a good understanding of floats.
+Because most programmers do not have a good understanding of these types.
 \end_layout
 
 \begin_layout Standard
@@ -2557,15 +2620,19 @@ They tend to forget all sorts of things, like:
 \end_layout
 
 \begin_layout Itemize
+Floating point numbers do not obey the usual laws of arithmetic.
+\end_layout
+
+\begin_layout Itemize
 \begin_inset Formula $0.3\neq\frac{3}{10}$
 \end_inset
 
-
+.
 \begin_inset Foot
 status open
 
 \begin_layout Plain Layout
-It's closer to 
+It's actually 
 \begin_inset Formula $\frac{5404319552844595}{18014398509481984}$
 \end_inset
 
@@ -2590,7 +2657,9 @@ There are a very large number of pairs of floats such that
 \end_layout
 
 \begin_layout Itemize
-etc.
+Most of the problems with floats are true of Decimals at their precision
+ limit.
+ 
 \end_layout
 
 \end_deeper
@@ -2603,7 +2672,11 @@ etc.
 status open
 
 \begin_layout Plain Layout
-Results of Computations Never Yield Ranges to any Power but 1.
+Results of Computations 
+\emph on
+Never
+\emph default
+ Yield Ranges to any Power but 1.
 \end_layout
 
 \end_inset
@@ -2618,11 +2691,27 @@ No operation is allowed that would result in a Range with units that could
 \end_layout
 
 \begin_layout Description
+Nonsensical: 
+\begin_inset Formula $n^{R}$
+\end_inset
+
+,
+\begin_inset Formula $n+R$
+\end_inset
+
+, etc.
+\end_layout
+
+\begin_layout Description
 Forbidden: 
-\begin_inset Formula $R^{R}$
+\begin_inset Formula $R^{n}$
 \end_inset
 
 , 
+\begin_inset Formula $RR$
+\end_inset
+
+
 \end_layout
 
 \begin_layout Description
@@ -2638,6 +2727,15 @@ Permitted:
 \begin_inset Formula $R/R$
 \end_inset
 
+, 
+\begin_inset Formula $R<R$
+\end_inset
+
+, 
+\begin_inset Formula $R\%R$
+\end_inset
+
+, etc.
  
 \end_layout
 
@@ -2651,7 +2749,7 @@ Permitted:
 status open
 
 \begin_layout Plain Layout
-Operands are Never Floats
+Implementation
 \end_layout
 
 \end_inset
@@ -2661,132 +2759,13 @@ Operands are Never Floats
 
 \begin_deeper
 \begin_layout FrameSubtitle
-Rules for arithmetic operations.
+The internal representation of a Range is as a fractional quantity of bytes.
 \end_layout
 
-\begin_layout Itemize
-Results are confined to 
-\emph on
-actual
-\emph default
- address ranges.
-\end_layout
-
-\begin_layout Itemize
-Results are 
-\emph on
-always exact
-\emph default
-.
-\end_layout
-
-\begin_layout Itemize
-Types are 
-\emph on
-always correct
-\emph default
-.
-\end_layout
-
-\begin_layout Itemize
-Operands are 
-\emph on
-never floats
-\emph default
-.
-\end_layout
-
-\end_deeper
-\begin_layout Separator
-
-\end_layout
-
-\begin_layout FragileFrame
-\begin_inset Argument 4
-status open
-
-\begin_layout Plain Layout
-Example: Unit Testing
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_deeper
-\begin_layout FrameSubtitle
-Unit testing a simple 
-\family typewriter
-convert_from_nat()
-\family default
- function.
-\end_layout
-
-\begin_layout Itemize
-Check that it works on 0.
-\end_layout
-
-\begin_layout Itemize
-Check multiple bases.
-\end_layout
-
-\begin_layout Itemize
-Check converting large values to small bases and small values to large bases.
-\end_layout
-
-\begin_layout Itemize
-Check exceptions.
-\end_layout
-
-\begin_layout Itemize
-etc.
-\end_layout
-
-\begin_layout ExampleBlock
-\begin_inset Argument 2
-status open
-
-\begin_layout Plain Layout
-A Few Simple Unit Tests in Pytest Style
-\end_layout
-
-\end_inset
-
-
-\begin_inset listings
-lstparams "language=Python,showstringspaces=false"
-inline false
-status open
-
-\begin_layout Plain Layout
-
-def test():
-\end_layout
-
-\begin_layout Plain Layout
-
-    assert convert_from_nat(0, 2) == []
-\end_layout
-
-\begin_layout Plain Layout
-
-    assert convert_from_nat(0, 1024) == []
-\end_layout
-
-\begin_layout Plain Layout
-
-    assert convert_from_nat(3, 2) == [1, 1]
-\end_layout
-
-\begin_layout Plain Layout
-
-    assert convert_from_nat(2, 3) == [2]
-\end_layout
-
-\end_inset
-
-
+\begin_layout Standard
+Given the restriction of Range result powers to 1, fractions are all that
+ are necessary to achieve exact results, i.e., there is no requirement for
+ symbolic computing.
 \end_layout
 
 \end_deeper
@@ -2799,7 +2778,7 @@ def test():
 status open
 
 \begin_layout Plain Layout
-Unit Tests are a Good Idea
+Try It Out
 \end_layout
 
 \end_inset
@@ -2809,52 +2788,23 @@ Unit Tests are a Good Idea
 
 \begin_deeper
 \begin_layout FrameSubtitle
-They are 
-\emph on
-much
-\emph default
- better than nothing and there is good library support in Python
-\begin_inset Foot
-status open
 
-\begin_layout Plain Layout
-Pytest: 
-\begin_inset Flex URL
-status open
-
-\begin_layout Plain Layout
-
-http://pytest.org/latest/
-\end_layout
-
-\end_inset
-
- or the Python unittest package
-\end_layout
-
-\end_inset
-
-.
-\end_layout
-
-\begin_layout Itemize
-They are an 
-\emph on
-implicit
-\emph default
+\family typewriter
+justbytes
+\family default
  and 
-\emph on
-partial
-\emph default
- specification of the code they test.
+\family typewriter
+justbytes-gui
+\family default
+ are available on PyPi.
 \end_layout
 
-\begin_layout Itemize
-They catch a surprising number of bugs in the code they test.
-\end_layout
-
-\begin_layout Itemize
-They catch regressions in new versions.
+\begin_layout Standard
+But only 
+\family typewriter
+justbytes
+\family default
+ is available in Fedora.
 \end_layout
 
 \end_deeper
@@ -2862,12 +2812,12 @@ They catch regressions in new versions.
 
 \end_layout
 
-\begin_layout FragileFrame
+\begin_layout Frame
 \begin_inset Argument 4
 status open
 
 \begin_layout Plain Layout
-Example: Hypothesis Testing (1)
+What I Haven't Talked About
 \end_layout
 
 \end_inset
@@ -2877,30 +2827,165 @@ Example: Hypothesis Testing (1)
 
 \begin_deeper
 \begin_layout FrameSubtitle
-Using Hypothesis to test a simple 
-\family typewriter
-convert_from_nat()
-\family default
- function.
+Major things I haven't solved.
 \end_layout
 
-\begin_layout Enumerate
-Come up with a specification.
+\begin_layout Itemize
+Input of address ranges.
 \end_layout
 
-\begin_layout Enumerate
-Express the specification in Python.
+\begin_layout Itemize
+Computing with address ranges and other units.
 \end_layout
 
-\begin_layout Enumerate
-Use Hypothesis to test that the specification holds.
+\end_deeper
+\begin_layout Separator
+
 \end_layout
 
-\begin_layout Theorem
-\begin_inset Formula $\forall v,\forall b,\mathtt{convert\_to\_nat}(\mathtt{convert\_from\_nat}(v,b),b)=v)$
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Input of Address Ranges (I)
+\end_layout
+
 \end_inset
 
 
+\end_layout
+
+\begin_deeper
+\begin_layout FrameSubtitle
+Getting an address range non-programatically.
+\end_layout
+
+\begin_layout Standard
+I haven't really solved this problem to my satisfaction; this is why 
+\family typewriter
+justbytes-gui
+\family default
+ is just a library and not also an application.
+ 
+\begin_inset Graphics
+	filename justbytesgui.png
+	scale 25
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Separator
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Input of Address Ranges (II)
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout FrameSubtitle
+Some thoughts.
+\end_layout
+
+\begin_layout Itemize
+In many practical situations, it is better to express a range as a fraction
+ of some related quantity, i.e., not as an absolute value.
+\end_layout
+
+\begin_layout Itemize
+In a GUI, it is best to limit the amount of free-form text the user can
+ enter.
+ Certainly, choice of units should be handled by a widget.
+\end_layout
+
+\begin_layout Itemize
+In a CLI or configuration file, there might be benefit to separating the
+ numeric part from the units.
+\end_layout
+
+\begin_layout Itemize
+Textual representations specific to floating point, e.g., 1e32, should be
+ disallowed.
+\end_layout
+
+\begin_layout Itemize
+Numbers with decimal points, e.g., 0.2, should be given their literal meaning,
+ i.e., 
+\begin_inset Formula $\frac{1}{5}$
+\end_inset
+
+ in this case, rather than their floating point interpretation, i.e., 
+\begin_inset Formula $\frac{3602879701896397}{18014398509481984}$
+\end_inset
+
+.
+\end_layout
+
+\end_deeper
+\begin_layout Separator
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Computing with Address Ranges and Other Units (I)
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout FrameSubtitle
+The only types of arguments to Range operations are numerical types or Range
+ objects.
+\end_layout
+
+\begin_layout Standard
+There are perfectly good Python libraries
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+Pint: 
+\begin_inset Flex URL
+status open
+
+\begin_layout Plain Layout
+
+https://pypi.python.org/pypi/Pint
+\end_layout
+
+\end_inset
+
+, etc.
+\end_layout
+
+\end_inset
+
+ for computing with units and verifying dimensionality, but they are all
+ for physical quantities, i.e.
+ not the domain.
+ But it is generally the case that computations with address ranges are
+ not actually unitless.
+ With a more complete library, dimensionality can be checked.
 \end_layout
 
 \begin_layout ExampleBlock
@@ -2908,558 +2993,7 @@ Use Hypothesis to test that the specification holds.
 status open
 
 \begin_layout Plain Layout
-A Simple Test Using Hypothesis
-\end_layout
-
-\end_inset
-
-
-\begin_inset listings
-lstparams "language=Python,showstringspaces=false"
-inline false
-status open
-
-\begin_layout Plain Layout
-
-@given(
-\end_layout
-
-\begin_layout Plain Layout
-
-   value=strategies.integers(min_value=0),
-\end_layout
-
-\begin_layout Plain Layout
-
-   base=strategies.integers(min_value=2)
-\end_layout
-
-\begin_layout Plain Layout
-
-)
-\end_layout
-
-\begin_layout Plain Layout
-
-def test(value, base):
-\end_layout
-
-\begin_layout Plain Layout
-
-    result = convert_from_nat(value, base)
-\end_layout
-
-\begin_layout Plain Layout
-
-    assert convert_to_nat(result, base) == value
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_deeper
-\begin_layout Separator
-
-\end_layout
-
-\begin_layout FragileFrame
-\begin_inset Argument 4
-status open
-
-\begin_layout Plain Layout
-Example: Hypothesis Testing (2)
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_deeper
-\begin_layout FrameSubtitle
-Using Hypothesis to test a simple 
-\family typewriter
-convert_from_nat()
-\family default
- function.
-\end_layout
-
-\begin_layout Theorem
-No leading zeros in result of 
-\family typewriter
-convert_from_nat()
-\family default
- function.
- This is a generalization of 
-\begin_inset Formula $\forall b,\mathtt{convert\_from\_nat}(0,b)=\mathtt{[]}.$
-\end_inset
-
-
-\end_layout
-
-\begin_layout ExampleBlock
-\begin_inset Argument 2
-status open
-
-\begin_layout Plain Layout
-A Simple Test Using Hypothesis
-\end_layout
-
-\end_inset
-
-
-\begin_inset listings
-lstparams "language=Python,showstringspaces=false"
-inline false
-status open
-
-\begin_layout Plain Layout
-
-@given(
-\end_layout
-
-\begin_layout Plain Layout
-
-   value=strategies.integers(min_value=0),
-\end_layout
-
-\begin_layout Plain Layout
-
-   base=strategies.integers(min_value=2)
-\end_layout
-
-\begin_layout Plain Layout
-
-)
-\end_layout
-
-\begin_layout Plain Layout
-
-def test(value, base):
-\end_layout
-
-\begin_layout Plain Layout
-
-    result = convert_from_nat(value, base)
-\end_layout
-
-\begin_layout Plain Layout
-
-    assert result == [] or result[0] != 0
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_deeper
-\begin_layout Separator
-
-\end_layout
-
-\begin_layout Frame
-\begin_inset Argument 4
-status open
-
-\begin_layout Plain Layout
-What Hypothesis Does with This Test Code
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_deeper
-\begin_layout FrameSubtitle
-Hypothesis generates, runs, and remembers tests to check the specified propertie
-s.
-\end_layout
-
-\begin_layout Enumerate
-It makes arguments for your test functions using the strategies specified.
-\end_layout
-
-\begin_layout Enumerate
-It runs tests for these arguments.
-\end_layout
-
-\begin_layout Enumerate
-It reports the results, stopping on the first failure, if any.
-\end_layout
-
-\begin_layout Enumerate
-It stores the tests in a database, remembering the result.
-\end_layout
-
-\begin_layout Standard
-This is not a description of the implementation, just a simplified description
- of what the user experiences.
-\end_layout
-
-\end_deeper
-\begin_layout Separator
-
-\end_layout
-
-\begin_layout Frame
-\begin_inset Argument 4
-status open
-
-\begin_layout Plain Layout
-Property-Based Testing is a 
-\emph on
-Great
-\emph default
- Idea
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_deeper
-\begin_layout FrameSubtitle
-Especially with Hypothesis.
-\end_layout
-
-\begin_layout Standard
-Hypothesis tests:
-\end_layout
-
-\begin_layout Itemize
-are an 
-\emph on
-explicit
-\emph default
- and 
-\emph on
-partial
-\emph default
- specification of the code they test.
-\end_layout
-
-\begin_layout Itemize
-catch more bugs than unit tests with less test code
-\end_layout
-
-\begin_layout Itemize
-employ code reuse in the choice of examples
-\end_layout
-
-\begin_layout Itemize
-favor examples that previously failed, enabling a simple-minded approach
- to debugging
-\begin_inset Foot
-status open
-
-\begin_layout Plain Layout
-Does not work with CI, but nice when debugging on a personal machine.
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Itemize
-are highly configurable
-\end_layout
-
-\begin_layout Itemize
-and so much more
-\end_layout
-
-\end_deeper
-\begin_layout Separator
-
-\end_layout
-
-\begin_layout Frame
-\begin_inset Argument 4
-status open
-
-\begin_layout Plain Layout
-Property-Based Testing is not Easy
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_deeper
-\begin_layout FrameSubtitle
-Even with Hypothesis, the upfront costs are higher than with unit testing.
-\end_layout
-
-\begin_layout Standard
-A partial list of difficulties:
-\end_layout
-
-\begin_layout Itemize
-It may be difficult to come up with a useful specification
-\begin_inset Foot
-status open
-
-\begin_layout Plain Layout
-You can always cheat with unit tests.
-\end_layout
-
-\end_inset
-
-.
-\end_layout
-
-\begin_layout Itemize
-It may be difficult to express that specification in Python.
-\end_layout
-
-\begin_layout Itemize
-It may be hard to test that specification in a reasonable amount of time.
-\end_layout
-
-\begin_layout Itemize
-It may be that Hypothesis does not have a strategy for generating the values
- needed as arguments to the specification
-\begin_inset Foot
-status open
-
-\begin_layout Plain Layout
-Hypothesis has some strategies for composing other strategies; I have yet
- to require a custom strategy.
-\end_layout
-
-\end_inset
-
-.
-\end_layout
-
-\begin_layout Standard
-But the gains are, typically, very great.
-\end_layout
-
-\end_deeper
-\begin_layout Separator
-
-\end_layout
-
-\begin_layout Frame
-\begin_inset Argument 4
-status open
-
-\begin_layout Plain Layout
-I Was Wrong...
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_deeper
-\begin_layout FrameSubtitle
-I used to believe that property-based testing was only good for purely functiona
-l applications.
-\end_layout
-
-\begin_layout Standard
-Reasons:
-\end_layout
-
-\begin_layout Itemize
-I was first introduced to property-based testing in Haskell
-\begin_inset Foot
-status open
-
-\begin_layout Plain Layout
-Haskell's QuickCheck is the original implementation of this idea.
-\end_layout
-
-\end_inset
-
-.
-\end_layout
-
-\begin_layout Itemize
-Examples are typically in mathematics or Haskelly sorts of applications.
-\end_layout
-
-\end_deeper
-\begin_layout Separator
-
-\end_layout
-
-\begin_layout Frame
-\begin_inset Argument 4
-status open
-
-\begin_layout Plain Layout
-...but Now I Know Better
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_deeper
-\begin_layout FrameSubtitle
-I have used Hypothesis successfully with pyudev, a library that wraps libudev.
-\end_layout
-
-\begin_layout Standard
-When I took over this library from the previous implementer, I found that
- he had been using property-based testing all along! All I needed to do
- was Hypothesize it.
-\end_layout
-
-\begin_layout Standard
-Basic principles of property-based testing on libudev:
-\end_layout
-
-\begin_layout Itemize
-Run on a real system, using output of 
-\family typewriter
-udevadm info
-\family default
- as oracle.
-\end_layout
-
-\begin_layout Itemize
-Mock what needs to be mocked.
-\end_layout
-
-\begin_layout Itemize
-Check pyudev functions against themselves.
-\end_layout
-
-\begin_layout Itemize
-etc.
-\end_layout
-
-\end_deeper
-\begin_layout Separator
-
-\end_layout
-
-\begin_layout FragileFrame
-\begin_inset Argument 4
-status open
-
-\begin_layout Plain Layout
-Example: Pyudev Hypothesis Testing
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_deeper
-\begin_layout FrameSubtitle
-Testing pyudev against itself 
-\begin_inset Foot
-status open
-
-\begin_layout Plain Layout
-More examples at 
-\begin_inset Flex URL
-status open
-
-\begin_layout Plain Layout
-
-https://github.com/pyudev/pyudev
-\end_layout
-
-\end_inset
-
-.
-\end_layout
-
-\end_inset
-
-.
-\end_layout
-
-\begin_layout ExampleBlock
-\begin_inset Argument 2
-status open
-
-\begin_layout Plain Layout
-A Simple Test Using Hypothesis
-\end_layout
-
-\end_inset
-
-
-\begin_inset listings
-lstparams "language=Python,basicstyle={\footnotesize},showstringspaces=false"
-inline false
-status open
-
-\begin_layout Plain Layout
-
-@given(
-\end_layout
-
-\begin_layout Plain Layout
-
-   _CONTEXT_STRATEGY,
-\end_layout
-
-\begin_layout Plain Layout
-
-   strategies.sampled_from(_DEVICES)
-\end_layout
-
-\begin_layout Plain Layout
-
-)
-\end_layout
-
-\begin_layout Plain Layout
-
-@settings(max_examples=5)
-\end_layout
-
-\begin_layout Plain Layout
-
-def test_from_name(self, a_context, a_device):       
-\end_layout
-
-\begin_layout Plain Layout
-
-   new_device = Devices.from_name(
-\end_layout
-
-\begin_layout Plain Layout
-
-      a_context,
-\end_layout
-
-\begin_layout Plain Layout
-
-      a_device.subsystem,
-\end_layout
-
-\begin_layout Plain Layout
-
-      a_device.sys_name
-\end_layout
-
-\begin_layout Plain Layout
-
-   )
-\end_layout
-
-\begin_layout Plain Layout
-
-   assert new_device == a_device
+Example.
 \end_layout
 
 \end_inset
@@ -3468,155 +3002,12 @@ def test_from_name(self, a_context, a_device):
 \end_layout
 
 \begin_layout ExampleBlock
-
-\end_layout
-
-\end_deeper
-\begin_layout Separator
-
-\end_layout
-
-\begin_layout Frame
-\begin_inset Argument 4
-status open
-
-\begin_layout Plain Layout
-Benefits of Hypothesizing the Tests
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_deeper
-\begin_layout FrameSubtitle
-What was gained by using Hypothesis.
-\end_layout
-
-\begin_layout Itemize
-If the test couldn't be run, usually because no device with the correct
- properties was available, get 1 skip message, not 100.
-\end_layout
-
-\begin_layout Itemize
-Test code is clearer.
-\end_layout
-
-\begin_layout Itemize
-Debugging is faster.
-\end_layout
-
-\begin_layout Itemize
-etc.
-\end_layout
-
-\begin_layout Standard
-Found a few signficant bugs in pyudev, a few significant problems in libudev,
- and a significant problem with udev DEVLINKS property in the presence of
- multipath.
-\end_layout
-
-\end_deeper
-\begin_layout Separator
-
-\end_layout
-
-\begin_layout Frame
-\begin_inset Argument 4
-status open
-
-\begin_layout Plain Layout
-Summary
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_deeper
-\begin_layout FrameSubtitle
-Property-based testing is great and so is Hypothesis.
-\end_layout
-
-\begin_layout Standard
-For all the reasons mentioned above:
-\end_layout
-
-\begin_layout Itemize
-memoization of examples that refute the specification
-\end_layout
-
-\begin_layout Itemize
-an explicit specification
-\end_layout
-
-\begin_layout Itemize
-etc.
-\end_layout
-
-\end_deeper
-\begin_layout Separator
-
-\end_layout
-
-\begin_layout Frame
-\begin_inset Argument 4
-status open
-
-\begin_layout Plain Layout
-Not Discussed (1)
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_deeper
-\begin_layout FrameSubtitle
-Property-based testing in other languages.
-\end_layout
-
-\begin_layout Itemize
-Proof of concept of Hypothesis in Java
-\begin_inset Foot
-status open
-
-\begin_layout Plain Layout
-I haven't tried it.
-\end_layout
-
-\end_inset
-
-.
-\end_layout
-
-\begin_layout Itemize
-Property-based testing in 
-\emph on
-many
-\emph default
- other languages
-\begin_inset Foot
-status open
-
-\begin_layout Plain Layout
-It's been tried and there is a list with estimates of quality at 
-\begin_inset Flex URL
-status open
-
-\begin_layout Plain Layout
-
-hypothesis.works
-\end_layout
-
-\end_inset
-
-.
-\end_layout
-
+The sysfs size attribute for block devices is the number of sectors in the
+ device.
+ Converting this value to a range requires multiplying the size by 512,
+ the number of bytes in the sector and converting the result.
+ Better to use the actual units, like 
+\begin_inset Formula $s\,\mathrm{blocks}\frac{512\,\mathrm{bytes}}{\mathrm{block}}=512s\,\mathrm{bytes}$
 \end_inset
 
 .
@@ -3632,7 +3023,7 @@ hypothesis.works
 status open
 
 \begin_layout Plain Layout
-Not Discussed (2)
+Computing with Address Ranges and Other Units (II)
 \end_layout
 
 \end_inset
@@ -3642,304 +3033,17 @@ Not Discussed (2)
 
 \begin_deeper
 \begin_layout FrameSubtitle
-Other Hypothesis features.
+Designing a library to satisfy this problem is a large undertaking with
+ limited reward.
 \end_layout
 
 \begin_layout Itemize
-Hypothesis's example minimization
-\begin_inset Foot
-status open
-
-\begin_layout Plain Layout
-I think my examples tend to be minimized by definition, although I'm not
- sure.
-\end_layout
-
-\end_inset
-
-.
+The design of the library is not obvious.
 \end_layout
 
 \begin_layout Itemize
-The 
-\family typewriter
-note()
-\family default
- function, for displaying additional information about a failing test
-\begin_inset Foot
-status open
-
-\begin_layout Plain Layout
-I don't use this often, because the way Hypothesis identifies counter-examples
- is usually enough.
-\end_layout
-
-\end_inset
-
-.
-\end_layout
-
-\begin_layout Itemize
-Hypothesis' higher-order strategies
-\begin_inset Foot
-status open
-
-\begin_layout Plain Layout
-
-\family typewriter
-For example, builds()
-\family default
- makes a strategy by applying a function to the values generated by other
- strategies.
-\end_layout
-
-\end_inset
-
-.
-\end_layout
-
-\begin_layout Itemize
-How to write your own strategy
-\begin_inset Foot
-status open
-
-\begin_layout Plain Layout
-I haven't had a reason to yet, the higher-order strategies have been enough.
-\end_layout
-
-\end_inset
-
-.
-\end_layout
-
-\begin_layout Itemize
-Configuring Hypothesis globally or per-test
-\begin_inset Foot
-status open
-
-\begin_layout Plain Layout
-For example, setting 
-\family typewriter
-max-examples
-\family default
- limits the number of examples tried per-test or per-run.
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Itemize
-Using Hypothesis interactively, or just using its strategies
-\begin_inset Foot
-status open
-
-\begin_layout Plain Layout
-If you just want to interact with objects generated by a strategy within
- the Python interpreter, that is an option, too.
-\end_layout
-
-\end_inset
-
-.
-\end_layout
-
-\end_deeper
-\begin_layout Separator
-
-\end_layout
-
-\begin_layout Frame
-\begin_inset Argument 4
-status open
-
-\begin_layout Plain Layout
-Not Discussed (3)
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_deeper
-\begin_layout FrameSubtitle
-Property-based testing challenges and strategies.
-\end_layout
-
-\begin_layout Itemize
-Testing GUIs
-\begin_inset Foot
-status open
-
-\begin_layout Plain Layout
-I'm not often involved in writing Python GUIs.
-\end_layout
-
-\end_inset
-
-.
-\end_layout
-
-\begin_layout Itemize
-Using coverage
-\begin_inset Foot
-status open
-
-\begin_layout Plain Layout
-http://coverage.readthedocs.io/en/coverage-4.0.3/index.html
-\end_layout
-
-\end_inset
-
- and Hypothesis together
-\begin_inset Foot
-status open
-
-\begin_layout Plain Layout
-It is often meaningful when you run 100 tests on a method, and some portion
- of the method is not covered.
-\end_layout
-
-\end_inset
-
-.
-\end_layout
-
-\begin_layout Itemize
-Using custom strategies to generate mock objects.
-\end_layout
-
-\begin_layout Itemize
-Stateful testing
-\begin_inset Foot
-status open
-
-\begin_layout Plain Layout
-Hypothesis has a way of, essentially, dynamically checking class invariants.
-\end_layout
-
-\end_inset
-
-.
-\end_layout
-
-\end_deeper
-\begin_layout Separator
-
-\end_layout
-
-\begin_layout Frame
-\begin_inset Argument 4
-status open
-
-\begin_layout Plain Layout
-Not Discussed (4)
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_deeper
-\begin_layout FrameSubtitle
-Technical Remarks.
-\end_layout
-
-\begin_layout Itemize
-Hypothesis works with pytest and with unittest.
-\end_layout
-
-\begin_layout Itemize
-Hypothesis Python version support: 2.7, 3.4 and 3.5, Legacy 2.6
-\end_layout
-
-\begin_layout Itemize
-Hypothesis Python compiler support: CPython and PyPy.
-\end_layout
-
-\begin_layout Itemize
-Hypothesis is used to test itself.
-\end_layout
-
-\end_deeper
-\begin_layout Separator
-
-\end_layout
-
-\begin_layout Frame
-\begin_inset Argument 4
-status open
-
-\begin_layout Plain Layout
-Future
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_deeper
-\begin_layout FrameSubtitle
-The gravy train won't keep going forever.
-\end_layout
-
-\begin_layout Itemize
-Developing Hypothesis is a full-time job for David MacIver, but nobody's
- paying for it.
-\end_layout
-
-\begin_layout Itemize
-Teaching Hypothesis is a well, but irregularly paying gig.
-\end_layout
-
-\begin_layout Standard
-Come August, Hypothesis will turn from a job into a hobby for David MacIver
- unless Hypothesis related cash-flow improves.
- Is there anything that users can do about that
-\begin_inset Foot
-status open
-
-\begin_layout Plain Layout
-\begin_inset Flex URL
-status open
-
-\begin_layout Plain Layout
-
-http://www.drmaciver.com/2016/04/brand-split
-\end_layout
-
-\end_inset
-
-/
-\end_layout
-
-\end_inset
-
-? Is open-source not really working very well if nothing can be done
-\begin_inset Foot
-status open
-
-\begin_layout Plain Layout
-\begin_inset Flex URL
-status open
-
-\begin_layout Plain Layout
-
-http://www.drmaciver.com/2016/04/writing-libraries-is-terrible/
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-?
+Such a library would help to find bugs, but it would require considerable
+ investment to use properly.
 \end_layout
 
 \end_deeper
