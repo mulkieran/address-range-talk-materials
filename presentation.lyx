@@ -176,6 +176,33 @@ Some opinion.
 status open
 
 \begin_layout Plain Layout
+Introduction
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout FrameSubtitle
+The Topic
+\end_layout
+
+\begin_layout Standard
+What is this talk about?
+\end_layout
+
+\end_deeper
+\begin_layout Separator
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
 The Domain
 \end_layout
 
@@ -303,12 +330,12 @@ layout
 
 \end_layout
 
-\begin_layout Frame
+\begin_layout FragileFrame
 \begin_inset Argument 4
 status open
 
 \begin_layout Plain Layout
-The Rest
+Real Example in the Domain (I)
 \end_layout
 
 \end_inset
@@ -318,10 +345,155 @@ The Rest
 
 \begin_deeper
 \begin_layout FrameSubtitle
-Only discussing the domain.
+lsblk
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+lsblk from util-linux 2.28
 \end_layout
 
-\begin_layout Itemize
+\end_inset
+
+
+\end_layout
+
+\begin_layout ExampleBlock
+\begin_inset Argument 2
+status open
+
+\begin_layout Plain Layout
+lsblk --ascii output
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout ExampleBlock
+\begin_inset listings
+lstparams "basicstyle={\footnotesize}"
+inline false
+status open
+
+\begin_layout Plain Layout
+
+NAME   MAJ:MIN RM   SIZE RO TYPE MOUNTPOINT
+\end_layout
+
+\begin_layout Plain Layout
+
+sda      8:0    0 931.5G  0 disk 
+\end_layout
+
+\begin_layout Plain Layout
+
+|-sda1   8:1    0   500M  0 part /boot
+\end_layout
+
+\begin_layout Plain Layout
+
+|-sda2   8:2    0  15.7G  0 part [SWAP]
+\end_layout
+
+\begin_layout Plain Layout
+
+|-sda3   8:3    0    50G  0 part /
+\end_layout
+
+\begin_layout Plain Layout
+
+|-sda4   8:4    0     1K  0 part 
+\end_layout
+
+\begin_layout Plain Layout
+
+`-sda5   8:5    0 865.3G  0 part /home
+\end_layout
+
+\begin_layout Plain Layout
+
+sdb      8:16   1   7.3G  0 disk /run/media/mulhern/12CE-4D83
+\end_layout
+
+\begin_layout Plain Layout
+
+sr0     11:0    1  1024M  0 rom 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Separator
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Real Example in the Domain (II)
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout FrameSubtitle
+blivet-gui 
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+blivet-gui 1.0.7
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename blivet-gui.png
+	scale 30
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Separator
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Some Final Words (I)
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout FrameSubtitle
+Last thoughts on amounts.
+\end_layout
+
+\begin_layout Standard
 Dealing with amounts is hard 
 \begin_inset Foot
 status open
@@ -352,18 +524,33 @@ The End of Error: Unum Computing
 .
 \end_layout
 
-\begin_layout Itemize
-Comparing apples with slightly larger apples
-\begin_inset Foot
+\end_deeper
+\begin_layout Separator
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
 status open
 
 \begin_layout Plain Layout
-You can say you have more apples if you use the smaller ones.
+Some Final Words (II)
 \end_layout
 
 \end_inset
 
-.
+
+\end_layout
+
+\begin_deeper
+\begin_layout FrameSubtitle
+Use of SI units in marketing.
+\end_layout
+
+\begin_layout Standard
+Comparing apples with slightly larger apples is a marketing trick.
+ You can say you have more apples if you have smaller apples, but does your
+ customer really get more applesauce?
 \end_layout
 
 \begin_layout Standard
@@ -377,6 +564,10 @@ You can say you have more apples if you use the smaller ones.
 \end_layout
 
 \end_deeper
+\begin_layout Frame
+
+\end_layout
+
 \begin_layout Separator
 
 \end_layout
@@ -401,7 +592,7 @@ This is a hard problem?!
 
 \begin_layout Standard
 Until I started working on software supporting block devices I would not
- have though that this was a difficult subject.
+ have thought that this was a difficult subject.
  But it is.
 \end_layout
 
@@ -462,6 +653,33 @@ Computation doing arithmetic with address range
 
 \begin_layout Description
 Display communicating address range values to a human reader
+\end_layout
+
+\end_deeper
+\begin_layout Separator
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Display
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout FrameSubtitle
+Showing values to a human reader.
+\end_layout
+
+\begin_layout Standard
+This is not a discussion of machine readable output.
 \end_layout
 
 \end_deeper
@@ -2416,6 +2634,29 @@ Computation
 
 \begin_deeper
 \begin_layout FrameSubtitle
+Computing with address ranges.
+\end_layout
+
+\end_deeper
+\begin_layout Separator
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Computation
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout FrameSubtitle
 Rules for arithmetic operations.
 \end_layout
 
@@ -2503,11 +2744,25 @@ Just as
 
 .
 \begin_inset Foot
-status collapsed
+status open
 
 \begin_layout Plain Layout
 Some idiosyncracies of the Python libraries make it attractive to be able
  to add numbers to ranges, but this is not really a good idea.
+ See 
+\begin_inset Flex URL
+status open
+
+\begin_layout Plain Layout
+
+http://pythonhosted.org/justbytes/tutorial.html
+\backslash
+#using-the-additive-identity
+\end_layout
+
+\end_inset
+
+.
 \end_layout
 
 \end_inset
@@ -2658,7 +2913,18 @@ There are a very large number of pairs of floats such that
 
 \begin_layout Itemize
 Most of the problems with floats are true of Decimals at their precision
- limit.
+ limit
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+I think that the best use of Decimal is probably with decimal values with
+ strict rules for rounding, like decimal currency.
+\end_layout
+
+\end_inset
+
+.
  
 \end_layout
 
@@ -2778,6 +3044,58 @@ Given the restriction of Range result powers to 1, fractions are all that
 status open
 
 \begin_layout Plain Layout
+Caveat
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout FrameSubtitle
+Something to watch out for.
+\end_layout
+
+\begin_layout ExampleBlock
+\begin_inset Argument 2
+status open
+
+\begin_layout Plain Layout
+A simple example.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout ExampleBlock
+The fraction 
+\begin_inset Formula $\frac{111}{11112121}$
+\end_inset
+
+has 13668 digits in the repeating part of its decimal representation.
+ There is a noticeable delay before the value is correctly calculated.
+\end_layout
+
+\begin_layout Standard
+Avoid requesting unbounded precision when displaying a range.
+ This can result in a very time-consuming computation as the number of repeating
+ digits is bounded by the magnitude of the denominator in the equivalent
+ fraction.
+\end_layout
+
+\end_deeper
+\begin_layout Separator
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
 Try It Out
 \end_layout
 
@@ -2790,21 +3108,44 @@ Try It Out
 \begin_layout FrameSubtitle
 
 \family typewriter
+Packages available.
+\end_layout
+
+\begin_layout Itemize
+
+\family typewriter
 justbytes
 \family default
- and 
+ is available in Fedora as python{2,3}-justbytes and from Pypi via pip.
+\end_layout
+
+\begin_layout Itemize
+
+\family typewriter
+justbytes
+\family default
+ tutorial available at 
+\begin_inset Flex URL
+status open
+
+\begin_layout Plain Layout
+
+http://pythonhosted.org/justbytes/tutorial.html
+\backslash
+#
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+
 \family typewriter
 justbytes-gui
 \family default
- are available on PyPi.
-\end_layout
-
-\begin_layout Standard
-But only 
-\family typewriter
-justbytes
-\family default
- is available in Fedora.
+ is available only on Pypi and expected to remain so.
 \end_layout
 
 \end_deeper
@@ -2901,6 +3242,10 @@ Some thoughts.
 \end_layout
 
 \begin_layout Itemize
+Best to avoid it altogether, wherever possible.
+\end_layout
+
+\begin_layout Itemize
 In many practical situations, it is better to express a range as a fraction
  of some related quantity, i.e., not as an absolute value.
 \end_layout
@@ -2918,7 +3263,18 @@ In a CLI or configuration file, there might be benefit to separating the
 
 \begin_layout Itemize
 Textual representations specific to floating point, e.g., 1e32, should be
- disallowed.
+ disallowed
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+That they are derived from scientific notation is not a justification for
+ allowing them.
+\end_layout
+
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Itemize
